@@ -1,4 +1,4 @@
-package org.example.book;
+package org.example.service;
 
 import lombok.Builder;
 import lombok.Getter;
