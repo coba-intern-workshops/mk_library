@@ -1,16 +1,15 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.UUID;
 
+@Setter
 @Getter
+@Builder
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Person {
     private UUID id;
     private String firstName;

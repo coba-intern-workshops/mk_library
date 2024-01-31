@@ -1,9 +1,10 @@
 package org.example.model;
 
+import lombok.*;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
-
 public class Rental {
     private UUID id;
     private Book book;
@@ -13,6 +14,14 @@ public class Rental {
     private LocalDate returnedOn;
     private boolean returned;
 
+    public Rental(Book book, Person person, LocalDate rentedOn, LocalDate rentedUntil) {
+        this.id = UUID.randomUUID();
+        this.book = book;
+        this.person = person;
+        this.rentedOn = rentedOn;
+        this.rentedUntil = rentedUntil;
+        this.returned = false;
+    }
     public Rental(Book book, Person person, LocalDate rentedOn, LocalDate rentedUntil, LocalDate returnedOn, boolean returned) {
         this.id = UUID.randomUUID();
         this.book = book;

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class BookService {
     private final Repository<Book> bookRepository;
 
-    public List<Book> findBooks(SearchCriteria searchCriteria) {
+    public List<Book> findBooks(BookSearchCriteria searchCriteria) {
         return bookRepository.findAll().stream()
                 .filter(book -> book.getAuthor().contains(searchCriteria.getAuthor()))
                 .collect(Collectors.toList());

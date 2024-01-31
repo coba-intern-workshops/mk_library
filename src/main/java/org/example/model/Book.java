@@ -8,6 +8,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
+@Builder
 public class Book {
     private UUID id;
     private String title;
