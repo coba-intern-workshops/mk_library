@@ -4,27 +4,22 @@ import org.example.dto.BookDto;
 import org.example.dto.BookStatusDto;
 import org.example.model.Book;
 import org.example.model.BookStatus;
+import org.springframework.stereotype.Component;
+
+import java.util.UUID;
 
 
-public class BookConverter extends Converter<BookDto, Book> {
-
+@Component
+public class BookConverter extends Converter<BookDto, Book>{
     public BookConverter() {
         super(BookConverter::convertToEntity, BookConverter::convertToDto);
     }
 
-    private static BookDto convertToDto(Book book) {
-        return BookDto.builder()
-                .title(book.getTitle())
-                .author(book.getAuthor())
-                .bookStatus(BookStatusDto.valueOf(book.getBookStatus().toString()))
-                .build();
+    private static BookDto convertToDto(Book book){
+        return new BookDto(book.getTitle(), book.getAuthor(), BookStatusDto.valueOf(book.getBookStatus().toString()));
     }
 
-    private static Book convertToEntity(BookDto bookDto) {
-        return Book.builder()
-                .title(bookDto.getTitle())
-                .author(bookDto.getAuthor())
-                .bookStatus(BookStatus.valueOf(bookDto.getBookStatus().toString()))
-                .build();
+    private static Book convertToEntity(BookDto dto){
+        return new Book(UUID.randomUUID(), dto.getTitle(), dto.getAuthor(), BookStatus.valueOf(dto.getBookStatus().toString()));
     }
 }

@@ -2,7 +2,9 @@ package org.example.converter;
 
 import org.example.dto.RentalDto;
 import org.example.model.Rental;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RentalConverter extends Converter<RentalDto , Rental>{
     public RentalConverter() {
         super(RentalConverter::convertToEntity, RentalConverter::convertToDto);

@@ -4,11 +4,12 @@ import org.example.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
-public class BookRepositoryImpl implements Repository<Book> {
+@Repository
+public class BookRepositoryImpl implements RepositoryIfc<Book> {
     private final List<Book> books = new ArrayList<>();
 
     @Override
