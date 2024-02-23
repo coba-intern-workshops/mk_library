@@ -16,10 +16,10 @@ public class BookConverter extends Converter<BookDto, Book>{
     }
 
     private static BookDto convertToDto(Book book){
-        return new BookDto(book.getTitle(), book.getAuthor(), BookStatusDto.valueOf(book.getBookStatus().toString()));
+        return new BookDto(book.getId(), book.getTitle(), book.getAuthor(), BookStatusDto.valueOf(book.getBookStatus().toString()));
     }
 
     private static Book convertToEntity(BookDto dto){
-        return new Book(UUID.randomUUID(), dto.getTitle(), dto.getAuthor(), BookStatus.valueOf(dto.getBookStatus().toString()));
+        return new Book(dto.getId(), dto.getTitle(), dto.getAuthor(), BookStatus.valueOf(dto.getBookStatus().toString()));
     }
 }

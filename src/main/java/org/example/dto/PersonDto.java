@@ -1,14 +1,16 @@
 package org.example.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Getter
-@AllArgsConstructor
-@Builder
 @ToString
+@EqualsAndHashCode
+@AllArgsConstructor
 public class PersonDto {
     private String firstName;
     private String lastName;
